@@ -1302,7 +1302,7 @@ async function saveTask() {
   try {
     const res = await fetch(CONFIG.SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ action: editingTaskId ? 'updateTask' : 'addTask', task: taskData })
     });
     await res.json();
@@ -1319,7 +1319,7 @@ async function deleteTask(id) {
   try {
     await fetch(CONFIG.SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ action: 'deleteTask', id })
     });
     showToast('Task deleted', 'success');
@@ -1374,7 +1374,7 @@ async function addComment() {
   try {
     await fetch(CONFIG.SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ action: 'updateComments', id: editingTaskId, comments })
     });
     document.getElementById('new-comment').value = '';
